@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>{% block titulo%}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <section class="mensajes">
+            {% if messages %}
+                <ul class="messages_list">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    </header>
+    <nav class="navbar bg-primary">
+        <div>
+            <a href="./" class="navbar-brand container d-flex align-items-center justify-content-center">
+                <!-- <img src="/imagenes/logo.jpg" height="50" width="50" class="d-inline-block align-top" alt=""> -->
+                <p class="text-white"><strong>LOGO</strong></p>
+            </a>
+        </div>
+            <a href="./verCumples" class="nav-item nav-link active text-white">Ver Cumples</a>
+            <a href="./verTareas" class="nav-item nav-link active text-white">Ver Tareas</a>
+            <a href="./login" class="nav-item nav-link active text-white">Iniciar Sesion</a>
+    </nav>
+    <br><br>
+
+    {% block contenido %}{% endblock %}
+
+
+    <br><br>
+    <div class="container-fluid bg-primary">
+        <footer class="justify-content-between align-items-center">
+            <p class="span12 text-center text-white" id="headerimage">Joaquin - Cesar - Gonzalo - Luca - Santiago</p>
+            <p class="span12 text-center text-white" id="headerimage">@Copyright-2023</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

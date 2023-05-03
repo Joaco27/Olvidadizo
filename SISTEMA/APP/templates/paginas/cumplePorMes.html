@@ -1,0 +1,15 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Cumple Por Mes
+{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        {% for c in context %}
+             <p> - {{ c.descripcion }}</p>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

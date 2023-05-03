@@ -1,0 +1,24 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Menu Principal
+{% endblock %}
+
+{% block contenido %}
+    <div class="d-flex justify-content-center">
+        <h1>Bienvenido a Olvidadizo!!</h1>
+    </div>
+    <br><br>
+    <div class="d-flex justify-content-around h-100">
+        <div class="">
+            <i class="fa-solid fa-notebook"></i>
+            <a href="/tarea" class="btn btn-primary">Agregar Tarea</a>
+        </div>
+        <div class="">
+            <i class="fa-solid fa-cake-candles"></i>
+            <a href="/cumple" class="btn btn-primary">Agregar Cumpleaños</a>
+        </div>
+    </div>
+
+{% endblock %}

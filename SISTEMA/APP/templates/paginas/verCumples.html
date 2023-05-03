@@ -1,0 +1,15 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Lista Cumples
+{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        {% for t in context %}
+            <p> - Cumpleaños de {{ t.descripcion }} el {{ t.dia }}/{{ t.mes }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

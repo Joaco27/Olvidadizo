@@ -1,0 +1,23 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+
+{% block titulo %}
+    Agregar Tarea
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="d-flex justify-content-center">
+        <h1>Añade una tarea</h1>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <form action= "{% url 'agregarTarea' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Enviar" class="btn btn-success">
+        </form>
+    </div>
+
+{% endblock %}

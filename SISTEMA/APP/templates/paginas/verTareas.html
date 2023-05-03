@@ -1,0 +1,15 @@
+{% extends "paginas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Lista Tareas
+{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        {% for t in context %}
+             <p> - {{ t.descripcion }} para la fecha de {{ t.fecha }}</p>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
