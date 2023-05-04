@@ -22,7 +22,8 @@ class CumpleForm(forms.Form):
         return data
     
 class TareaForm(forms.Form):
-    fecha = forms.DateField(label= "Fecha", required=True, widget=forms.DateInput())
+    #fecha = forms.DateField(label= "Fecha", required=True, widget=forms.DateInput())
+    fecha = forms.DateField(label="Fecha", widget=forms.DateInput(attrs= {"type":"date"}))
     descripcion = forms.CharField(label= "Tarea a realizar", required=True)
     
     def clean_fecha(self):
