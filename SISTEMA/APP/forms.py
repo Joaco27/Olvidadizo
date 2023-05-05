@@ -3,6 +3,7 @@ from django import forms
 import datetime
 from datetime import date
 from django.core.exceptions import ValidationError 
+from django.forms import widgets
 
 class CumpleForm(forms.Form):
     dia = forms.IntegerField(label= "Dia", required=True)
@@ -22,7 +23,6 @@ class CumpleForm(forms.Form):
         return data
     
 class TareaForm(forms.Form):
-    #fecha = forms.DateField(label= "Fecha", required=True, widget=forms.DateInput())
     fecha = forms.DateField(label="Fecha", widget=forms.DateInput(attrs= {"type":"date"}))
     descripcion = forms.CharField(label= "Tarea a realizar", required=True)
     

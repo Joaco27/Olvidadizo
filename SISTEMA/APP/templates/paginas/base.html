@@ -10,22 +10,18 @@
     <title>{% block titulo%}{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <section class="mensajes">
-            {% if messages %}
-                <ul class="messages_list">
-                    {% for message in messages %}
-                        <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </section>
-    </header>
+    <div>
+        {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-success" {% endif %}>{{message}}</p>
+                {% endfor %}
+        {% endif %}
+    </div>
     <nav class="navbar bg-primary">
-        <div>
+        <div class="d-flex align-items-center">
             <a href="./" class="navbar-brand container d-flex align-items-center justify-content-center">
                 <!-- <img src="/imagenes/logo.jpg" height="50" width="50" class="d-inline-block align-top" alt=""> -->
-                <p class="text-white"><strong>LOGO</strong></p>
+                <p class="text-white"><strong>HOME</strong></p>
             </a>
         </div>
             <a href="./verCumples" class="nav-item nav-link active text-white">Ver Cumples</a>

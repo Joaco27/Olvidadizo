@@ -26,76 +26,61 @@ def cumpleMes(request, mes):
 
 def agregarCumple(request):
     if request.method == 'POST':
-        cumple_form = CumpleForm(request.POST)
-        if cumple_form.is_valid():
+        form = CumpleForm(request.POST)
+        if form.is_valid():
+            
+            cumpleaños_nuevo = Cumples(
+                user = 1,
+                dia = form.cleaned_data['dia'],
+                mes = form.cleaned_data['mes'],
+                descripcion = form.cleaned_data['descripcion'],
+            )
 
+            cumpleaños_nuevo.save()
             messages.add_message(request, messages.SUCCESS, 'Consulta enviada con exito', extra_tags="tag1")
 
             return redirect("index")
     else:
-        cumple_form = CumpleForm()
+        form = CumpleForm()
         
     context = {
-        'form': cumple_form,
+        'form': form,
     }
     return render(request, 'paginas/agregarCumple.html', context)
 
 
 def agregarTarea(request):
     if request.method == 'POST':
-        tarea_form = TareaForm(request.POST)
-        if tarea_form.is_valid():
+        form = TareaForm(request.POST)
+        if form.is_valid():
+            tarea_nueva = Tareas(
+                user = 1,
+                fecha = form.cleaned_data['fecha'],
+                descripcion = form.cleaned_data['descripcion'],
+            )
 
+            tarea_nueva.save()
             messages.add_message(request, messages.SUCCESS, 'Consulta enviada con exito', extra_tags="tag1")
 
             return redirect("index")
     else:
-        tarea_form = TareaForm()
+        form = TareaForm()
         
     context = {
-        'form': tarea_form,
+        'form': form,
     }
     return render(request, 'paginas/agregarTarea.html',context)
 
     
 
 def verCumples(request):
-    #context=Cumples.objects.all()
-    context = [
-        {
-            'dia': 1,
-            'mes':1,
-            'descripcion':"Juan"
-        },
-        {
-            'dia': 2,
-            'mes':2,
-            'descripcion':"Maria"
-        },
-        {
-            'dia': 3,
-            'mes':3,
-            'descripcion':"Ana"
-        },
-    ]
+    context=Cumples.objects.all()
+
     return render(request, 'paginas/verCumples.html', {'context':context})
 
 def verTareas(request):
-    #context=Tareas.objects.all()
-    context = [
-        {
-            'fecha': '4/5/2023',
-            'descripcion':"Realizar web python django"
-        },
-        {
-            'fecha': '4/5/2023',
-            'descripcion':"Realizar web python django"
-        },
-        {
-            'fecha': '4/5/2023',
-            'descripcion':"Realizar web python django"
-        },
-    ]
+    context=Tareas.objects.all()
+    
     return render(request, 'paginas/verTareas.html', {'context':context})
 
 def LogIn(request):
