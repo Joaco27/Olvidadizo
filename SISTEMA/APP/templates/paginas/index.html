@@ -5,18 +5,25 @@
     Menu Principal
 {% endblock %}
 
+
+{% block link %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+{% endblock %}
+
 {% block contenido %}
     <div class="d-flex justify-content-center">
         <h1>Bienvenido a Olvidadizo!!</h1>
     </div>
     <br><br>
     <div class="d-flex justify-content-around h-100">
-        <div class="">
-            <i class="fa-solid fa-notebook"></i>
+        <div class="d-flex flex-column align-items-center">
+            <!-- <i class="fa-solid fa-notebook"></i> -->
+            <img src="static/imagenes/notebook.png" height="100" width="100" alt="Foto Notebook">
             <a href="/tarea" class="btn btn-primary">Agregar Tarea</a>
         </div>
-        <div class="">
-            <i class="fa-solid fa-cake-candles"></i>
+        <div class="d-flex flex-column align-items-center">
+            <!-- <i class="fa-solid fa-cake-candles"></i> -->
+            <img src="static/imagenes/pastel.png" height="100" width="100" alt="Foto Pastel">
             <a href="/cumple" class="btn btn-primary">Agregar Cumpleaños</a>
         </div>
     </div>
