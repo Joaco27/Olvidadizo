@@ -13,6 +13,5 @@ class Cumples(models.Model):
     descripcion = models.CharField(max_length=200)
     
 class Users(models.Model):
-    id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=15)
     passwords = models.CharField(max_length=15)
