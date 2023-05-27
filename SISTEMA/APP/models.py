@@ -12,7 +12,6 @@ class Tareas(models.Model):
     
 class Cumples(models.Model): 
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    dia = models.IntegerField()
-    mes = models.IntegerField()
+    fecha = models.DateTimeField()
     descripcion = models.CharField(max_length=200)
     

@@ -27,12 +27,12 @@ def cumpleMes(request, mes):
 def agregarCumple(request):
     if request.method == 'POST':
         form = CumpleForm(request.POST)
+        u = Users.objects.get(username='joaco27')
         if form.is_valid():
             
             cumpleaños_nuevo = Cumples(
-                user = 1,
-                dia = form.cleaned_data['dia'],
-                mes = form.cleaned_data['mes'],
+                user = u,
+                fecha = form.cleaned_data['fecha'],
                 descripcion = form.cleaned_data['descripcion'],
             )
 
@@ -51,10 +51,11 @@ def agregarCumple(request):
 
 def agregarTarea(request):
     if request.method == 'POST':
+        u = Users.objects.get(username='joaco27')
         form = TareaForm(request.POST)
         if form.is_valid():
             tarea_nueva = Tareas(
-                user = 1,
+                user = u,
                 fecha = form.cleaned_data['fecha'],
                 descripcion = form.cleaned_data['descripcion'],
             )
